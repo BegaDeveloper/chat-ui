@@ -1,0 +1,162 @@
+.pure-g {
+  margin-top: 30px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 100vh;
+  position: relative;
+  .main {
+    width: 100%;
+    position: absolute;
+    bottom: 100px;
+    .ct {
+      display: flex;
+      gap: 10px;
+
+      .chat-input {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .chat-input .mat-form-field-flex {
+        flex: 1;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 25px;
+      }
+
+      .left-buttons,
+      .right-buttons {
+        display: flex;
+        gap: 5px;
+      }
+
+      .right-buttons {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+
+.custom-button {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: grey;
+  width: 175px;
+  gap: 1px;
+}
+
+.custom-button mat-icon {
+  margin-right: 8px;
+}
+
+.custom-button.active,
+button.mat-icon-button.custom-button.active {
+  background-color: #eef4ff;
+  color: #0d3074;
+}
+
+@media (min-width: 768px) {
+  .pure-g {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .pure-g {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .pure-g {
+    width: 1170px;
+  }
+}
+
+.chat-input textarea {
+  overflow-y: hidden;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.menu-main {
+  padding: 15px;
+  .desc {
+    font-size: 14px;
+    opacity: 0.7;
+  }
+
+  .content {
+    .options {
+      .first-content {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 15px;
+        span {
+          font-size: 18px;
+          display: flex;
+          align-items: center;
+          width: 20px;
+        }
+        .header {
+          p {
+            margin-bottom: 0;
+            margin: 0;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}
+
+.btn-div {
+  position: relative;
+  margin-right: 10px;
+  .expandable-button {
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    background-color: #1457d9;
+    color: white;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 45px;
+    transition: width 0.3s ease;
+    border: none;
+    padding: 4px;
+    height: 30px;
+  }
+  .expandable-button:hover {
+    width: 150px;
+  }
+  .expandable-button button {
+    border: none;
+    background-color: #1457d9;
+    color: white;
+    display: flex;
+    align-items: center;
+  }
+  .expandable-button .button-text {
+    display: inline-block;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    margin-left: 5px;
+    font-size: 18px;
+  }
+
+  .expandable-button:hover .button-text {
+    opacity: 1;
+  }
+  mat-icon {
+    color: white;
+  }
+}

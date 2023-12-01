@@ -1,0 +1,128 @@
+<div class="pure-g">
+  <div class="main">
+    <div class="ct">
+      <div class="btn-div">
+        <div class="expandable-button">
+          <button mat-icon-button>
+            <mat-icon>edit_square</mat-icon>
+          </button>
+          <span class="button-text">New topic</span>
+        </div>
+      </div>
+      <div class="full-width">
+        <mat-form-field appearance="outline" class="chat-input">
+          <textarea
+            matInput
+            #autosize="cdkTextareaAutosize"
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="30"
+            [placeholder]="placeholderText"
+            name="message"
+            [(ngModel)]="message"
+            (ngModelChange)="onContentChange()"
+          ></textarea>
+          <div class="buttons">
+            <div class="left-buttons">
+              <mat-menu #internalKnowledgeMenu="matMenu" yPosition="above">
+                <ng-container>
+                  <div class="menu-main">
+                    <p><b>Internal Knowledge</b></p>
+                    <p class="desc">
+                      Select which sources of information should be accesed to
+                      find the answers.
+                    </p>
+
+                    <div class="content">
+                      <div class="options" *ngFor="let option of optionsMenu">
+                        <div class="first-content">
+                          <div>
+                            <mat-slide-toggle
+                              color="primary"
+                              (click)="stopPropagation($event)"
+                            ></mat-slide-toggle>
+                          </div>
+                          <div>
+                            <span class="material-icons-outlined">{{
+                              option.icon
+                            }}</span>
+                          </div>
+                          <div class="header">
+                            <p>
+                              {{ option.header }}
+                            </p>
+                          </div>
+                        </div>
+                        <div [innerHTML]="option.content"></div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+              </mat-menu>
+              <button
+                matTooltip="Query internal files"
+                matTooltipPosition="above"
+                mat-icon-button
+                class="custom-button"
+                [class.active]="isActiveButton('internal')"
+                [ngStyle]="getButtonStyle('internal')"
+                [matMenuTriggerFor]="internalKnowledgeMenu"
+                (click)="setActiveButton('internal')"
+              >
+                <mat-icon class="material-icons-outlined"
+                  >import_contacts_outline</mat-icon
+                >
+                Internal Knowledge
+              </button>
+              <button
+                matTooltip="Query the web"
+                matTooltipPosition="above"
+                mat-icon-button
+                class="custom-button"
+                [class.active]="isActiveButton('web')"
+                [ngStyle]="getButtonStyle('web')"
+                (click)="setActiveButton('web')"
+              >
+                <mat-icon class="material-icons-outlined"
+                  >language_outline</mat-icon
+                >
+                Web Research
+              </button>
+              <button
+                matTooltipPosition="above"
+                matTooltip="Chat-GPT"
+                mat-icon-button
+                class="custom-button"
+                [class.active]="isActiveButton('turbo')"
+                [ngStyle]="getButtonStyle('turbo')"
+                (click)="setActiveButton('turbo')"
+              >
+                <mat-icon class="material-icons-outlined"
+                  >star_outline</mat-icon
+                >
+                GBT-4 Turbo
+              </button>
+            </div>
+
+            <div class="right-buttons">
+              <button mat-icon-button (click)="attachFile()">
+                <mat-icon class="material-icons-outlined"
+                  >attach_file_outline</mat-icon
+                >
+              </button>
+              <button
+                mat-icon-button
+                (click)="sendMessage()"
+                [ngStyle]="getSendButtonStyle()"
+              >
+                <mat-icon class="material-icons-outlined"
+                  >send_outline</mat-icon
+                >
+              </button>
+            </div>
+          </div>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>

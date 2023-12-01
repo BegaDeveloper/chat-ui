@@ -1,0 +1,91 @@
+/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+$mat-primary: (
+  main: #00365d,
+  lighter: #084c7c,
+  darker: #00365d,
+  100: 80222a,
+  200: #00365d,
+  500: #00365d,
+  700: #00365d,
+  contrast: (
+    main: white,
+    lighter: rgba(black, 0.87),
+    darker: white,
+  ),
+);
+$mat-accent: (
+  main: #3c577c,
+  lighter: #597090,
+  darker: #1a2c4c,
+  200: #9eabbe,
+  contrast: (
+    main: white,
+    lighter: rgba(black, 0.87),
+    darker: white,
+  ),
+);
+
+$theme-primary: mat.define-palette($mat-primary);
+$referlex-web-primary: mat.define-palette($mat-primary, main, lighter, darker);
+$referlex-web-accent: mat.define-palette($mat-accent, main, lighter, darker);
+
+$referlex-web-warn: mat.define-palette(mat.$red-palette);
+$referlex-web-theme: mat.define-light-theme(
+  $referlex-web-primary,
+  $referlex-web-accent,
+  $referlex-web-warn
+);
+@include mat.all-component-themes($referlex-web-theme);
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 24;
+}
+
+.mat-mdc-icon-button.mat-mdc-button-base {
+  height: 35px;
+  padding: 10px;
+}
+
+.mat-mdc-icon-button .mat-mdc-button-persistent-ripple {
+  border-radius: 5px !important;
+}
+
+.mat-mdc-icon-button {
+  border-radius: 5px !important;
+}
+
+.mat-mdc-menu-panel {
+  max-width: 350px !important;
+}
+
+.txt {
+  margin-left: 75px !important;
+  font-size: 15px !important;
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.mat-mdc-snack-bar-container .mdc-snackbar__label {
+  background: white !important;
+}
+
+.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  background: white !important;
+}
